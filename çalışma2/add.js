@@ -126,20 +126,44 @@
 
 
 
-let user = 'kodluyoruz';
-localStorage.setItem('userİnfo', turgut);
-localStorage.getItem('userİnfo');
+// let user = 'kodluyoruz';
+// localStorage.setItem('userİnfo', turgut);
+// localStorage.getItem('userİnfo');
 
 
 
-let user = {userName: 'turgutkafali' , isActive: true};
-console.log(user);
+// let user = {userName: 'turgutkafali' , isActive: true};
+// // console.log(user);
 
-localStorage.setItem('userİnfo', JSON.stringify(user));
+// localStorage.setItem('userİnfo', JSON.stringify(user));
 
-let userİnfo = localStorage.getItem('userİnfo');
-console.log(userİnfo);
+// let userİnfo = localStorage.getItem('userİnfo')// bilgiyi al
+// userİnfo = JSON.parse(userİnfo);// değerleri düzgün bir sekilde gormek için yapıyoruz
+// console.log(userİnfo);
 
+//   ***************** localStorage calışması
 
+let counter = localStorage.getItem('counter') ? Number(localStorage.getItem('counter')) : 0;
+let counterDOM = document.querySelector('#counter');
+let arttirDOM = document.querySelector('#arttir');
+let azaltDOM = document.querySelector('#azalt');
 
+counterDOM.innerHTML = counter;
 
+arttirDOM.addEventListener('click', clickEvent);
+azaltDOM.addEventListener('click', clickEvent);
+
+// function clickEvent() {
+//     if(this.id == 'arttir'){
+//         counterDOM.innerHTML = counter += 1;
+//     }else{
+//         counterDOM.innerHTML = counter -= 1;
+//     }
+// }
+
+function clickEvent(){
+    // console.log(typeof(counter));
+    this.id == 'arttir' ? counter += 1 : counter -= 1;
+    localStorage.setItem('counter' , counter)
+    counterDOM.innerHTML = counter;
+}
