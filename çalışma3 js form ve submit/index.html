@@ -7,10 +7,18 @@
     <title>JS Form ve Form submit</title>
 </head>
 <body>
-    <form id="userForm">
+    <!-- <form id="userForm">
         <input type="number" name="score" id="score">
         <button type="submit"> Gönder</button>
-    </form>
+    </form> -->
+
+    <form onsubmit="handleSubmit(e)" method="POST">
+        <input type="text"name="username"placeholder="Kullanıcı adınızı giriniz"onchange="handleChange(event)"/>
+        <input type="password"name="password"placeholder="Şifrenizi giriniz."onchange="handleChange(event)"/>
+        <button type="submit">Giriş</button>
+      </form>
+
+
     <script src="add.js"></script>
 </body>
 </html>
